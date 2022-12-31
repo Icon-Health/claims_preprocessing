@@ -9,6 +9,6 @@
 
 
 select *
-from {{ var('medical_claim')}}
+from `ferrous-weaver-306014.LDS_connector.medical_claim`
 
 

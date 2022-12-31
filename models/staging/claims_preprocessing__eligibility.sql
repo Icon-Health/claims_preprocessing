@@ -9,6 +9,6 @@
 
 
 select *
-from {{ var('eligibility')}}
+from `ferrous-weaver-306014.LDS_connector.eligibility`
 
 

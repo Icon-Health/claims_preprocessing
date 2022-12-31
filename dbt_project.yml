@@ -37,3 +37,71 @@ models:
 
 tests:
   +severity: warn
+
+# These variables tell the_tuva_project package what
+# packages to run. If there are some packages you 
+# are not interested in running, this is where you
+# need to set the relevant variable(s) to 'false':
+vars:
+  tuva_packages_enabled: true  
+ 
+  claims_preprocessing_enabled: true
+  cms_chronic_conditions_enabled: false
+  data_profiling_enabled: false 
+  pmpm_enabled: false
+  readmissions_enabled: false
+  terminology_enabled: true
+  tuva_chronic_conditions_enabled: false
+
+# These variables point to the 3 input tables you created 
+# in your dbt project which constitutes the
+# Tuva Claims CMD. 
+# If you named these 3 models anything other than 'medical_claim',
+# 'eligibility', 'pharmacy_claim', you must modify the
+# refs here:
+  medical_claim_override:   "{{ref('ferrous-weaver-306014.LDS_connector.medical_claim')}}"
+  eligibility_override: "{{ref('ferrous-weaver-306014.LDS_connector.eligibility')}}"
+  pharmacy_claim_override: "{{ref('')}}"
+
+# This variable sets the name of the database
+# where the output of the Tuva Project will be 
+# dumped into. Make sure this database exists
+# in your data warehouse before you run this package, 
+# since dbt can create schemas in your data warehouse, 
+# but it cannot create databases. Note that further 
+# down you may choose separate databases for the 
+# output of different dbt packages within the Tuva Project:
+  tuva_database: ferrous-weaver-306014  
+
+# If you want to add a prefix to every schema that the
+# Tuva Project will write data to, set this prefix in
+# this variable (it is commented out by default):
+# tuva_schema_prefix: test
+
+# If you want to write the output of any package 
+# that is part of the Tuva Project to a database
+# or schema different than the default names we
+# suggest here, change the name here:
+  claims_preprocessing_database: ferrous-weaver-306014
+  # claims_preprocessing_schema: LDS_tuva
+# cms_chronic_conditions_database: tuva
+# cms_chronic_conditions_schema: cms_chronic_conditions
+# data_profiling_database: lds_tuva
+# data_profiling_schema: data_profiling
+# pmpm_database: tuva
+# pmpm_schema: pmpm
+# readmissions_database: tuva
+# readmissions_schema: readmissions
+  terminology_database: ferrous-weaver-306014
+  terminology_schema: terminology
+# tuva_chronic_conditions_database: tuva
+# tuva_chronic_conditions_schema: tuva_chronic_conditions
+
+
+# By default, dbt prefixes schema names with the target 
+# schema in your profile. We recommend including this 
+# here so that dbt does not prefix the output schemas
+# of the Tuva Project with anything:
+dispatch:
+  - macro_namespace: dbt
+    search_order: [ 'the_tuva_project', 'dbt']

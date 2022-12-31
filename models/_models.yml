@@ -87,6 +87,17 @@ models:
       tags: claims_preprocessing
 
 
+  - name: claims_preprocessing__encounter_type_temp
+    config:
+      database: "{{ var('claims_preprocessing_database',var('tuva_database','tuva')) }}"
+      schema: |
+        {%- if var('claims_preprocessing_schema',None) != None -%}{{var('claims_preprocessing_schema')}}
+        {%- elif var('tuva_schema_prefix',None) != None -%}{{var('tuva_schema_prefix')}}_core
+        {% else %}core{%- endif -%}
+      alias: intermediate_encounter_type_temp
+      tags: claims_preprocessing
+
+
   - name: claims_preprocessing__encounter_type
     config:
       database: "{{ var('claims_preprocessing_database',var('tuva_database','tuva')) }}"
@@ -96,7 +107,6 @@ models:
         {% else %}core{%- endif -%}
       alias: intermediate_encounter_type
       tags: claims_preprocessing
-
 
   - name: claims_preprocessing__generate_institutional_encounter_id
     config:
