@@ -9,6 +9,6 @@
 
 
 select *
-from `ferrous-weaver-306014.LDS_connector.eligibility`
+from `fiery-pipe-330412.auxilium_connector.eligibility`
 
 

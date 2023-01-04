@@ -59,9 +59,9 @@ vars:
 # If you named these 3 models anything other than 'medical_claim',
 # 'eligibility', 'pharmacy_claim', you must modify the
 # refs here:
-  medical_claim_override:   "{{ref('ferrous-weaver-306014.LDS_connector.medical_claim')}}"
-  eligibility_override: "{{ref('ferrous-weaver-306014.LDS_connector.eligibility')}}"
-  pharmacy_claim_override: "{{ref('')}}"
+  medical_claim_override:   "{{ref('fiery-pipe-330412.auxilium_connector.medical_claim')}}"
+  eligibility_override: "{{ref('fiery-pipe-330412.auxilium_connector.eligibility')}}"
+  pharmacy_claim_override: "{{ref(''fiery-pipe-330412.auxilium_connector.pharmacy_claim')}}"
 
 # This variable sets the name of the database
 # where the output of the Tuva Project will be 
@@ -71,7 +71,7 @@ vars:
 # but it cannot create databases. Note that further 
 # down you may choose separate databases for the 
 # output of different dbt packages within the Tuva Project:
-  tuva_database: ferrous-weaver-306014  
+  tuva_database: fiery-pipe-330412 
 
 # If you want to add a prefix to every schema that the
 # Tuva Project will write data to, set this prefix in
@@ -82,8 +82,8 @@ vars:
 # that is part of the Tuva Project to a database
 # or schema different than the default names we
 # suggest here, change the name here:
-  claims_preprocessing_database: ferrous-weaver-306014
-  # claims_preprocessing_schema: LDS_tuva
+  claims_preprocessing_database: fiery-pipe-330412
+  claims_preprocessing_schema: auxilium_tuva_core
 # cms_chronic_conditions_database: tuva
 # cms_chronic_conditions_schema: cms_chronic_conditions
 # data_profiling_database: lds_tuva
@@ -92,7 +92,7 @@ vars:
 # pmpm_schema: pmpm
 # readmissions_database: tuva
 # readmissions_schema: readmissions
-  terminology_database: ferrous-weaver-306014
+  terminology_database: fiery-pipe-330412
   terminology_schema: terminology
 # tuva_chronic_conditions_database: tuva
 # tuva_chronic_conditions_schema: tuva_chronic_conditions
