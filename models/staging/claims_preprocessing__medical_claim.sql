@@ -9,6 +9,6 @@
 
 
 select *
-from `ferrous-weaver-306014.auxilium_connector.medical_claim`
+from `ferrous-weaver-306014.primus_connector.medical_claim`
 
 
