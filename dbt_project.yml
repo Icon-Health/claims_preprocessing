@@ -59,9 +59,9 @@ vars:
 # If you named these 3 models anything other than 'medical_claim',
 # 'eligibility', 'pharmacy_claim', you must modify the
 # refs here:
-  medical_claim_override:   "{{ref('ferrous-weaver-306014.primus_connector.medical_claim')}}"
-  eligibility_override: "{{ref('ferrous-weaver-306014.primus_connector.eligibility')}}"
-  pharmacy_claim_override: "{{ref(''ferrous-weaver-306014.primus_connector.pharmacy_claim')}}"
+  medical_claim_override:   "{{ref('ferrous-weaver-306014.primus_connector_humana.medical_claim')}}"
+  eligibility_override: "{{ref('ferrous-weaver-306014.primus_connector_humana.eligibility')}}"
+  pharmacy_claim_override: "{{ref(''ferrous-weaver-306014.primus_connector_humana.pharmacy_claim')}}"
 
 # This variable sets the name of the database
 # where the output of the Tuva Project will be 
@@ -83,7 +83,7 @@ vars:
 # or schema different than the default names we
 # suggest here, change the name here:
   claims_preprocessing_database: ferrous-weaver-306014
-  claims_preprocessing_schema: core
+  claims_preprocessing_schema: 
 # cms_chronic_conditions_database: tuva
 # cms_chronic_conditions_schema: cms_chronic_conditions
 # data_profiling_database: lds_tuva

@@ -9,6 +9,6 @@
 
 
 select *
-from `ferrous-weaver-306014.primus_connector.eligibility`
+from `ferrous-weaver-306014.primus_connector_humana.eligibility`
 
 
